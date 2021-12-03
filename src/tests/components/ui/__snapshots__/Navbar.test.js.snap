@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <Navbar /> El componente debe de mostrarse correctamente 1`] = `
+<nav
+  className="navbar navbar-expand-sm navbar-dark bg-dark"
+>
+  <div
+    className="container-fluid"
+  >
+    <button
+      aria-controls="navbarTogglerDemo01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-bs-target="#navbarTogglerDemo01"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarTogglerDemo01"
+    >
+      <a
+        className="navbar-brand"
+        onClick={[Function]}
+      >
+        Asociaciones
+      </a>
+      <ul
+        className="navbar-nav me-auto mb-2 mb-lg-0"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            onClick={[Function]}
+          >
+            Marvel
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            onClick={[Function]}
+          >
+            DC
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            onClick={[Function]}
+          >
+            Search
+          </a>
+        </li>
+      </ul>
+      <div
+        className="d-flex"
+      >
+        <span
+          className="text-name mx-3 my-2 nav-item"
+        >
+          Gabriel
+        </span>
+        <button
+          className="btn link-logout"
+          onClick={[Function]}
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

@@ -1,0 +1,9 @@
+/*Estilos de la opcion Cerrar Sesion*/
+.link-logout{
+    text-decoration: none;
+    color: #9A9BA0;
+}
+.link-logout:hover{
+    text-decoration: none;
+    color: #cbccce;
+}
