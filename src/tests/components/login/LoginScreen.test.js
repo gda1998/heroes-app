@@ -1,25 +1,28 @@
 import { mount } from 'enzyme';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { AuthContext } from '../../../auth/AuthContext';
 import { LoginScreen } from '../../../components/login/LoginScreen';
 import { types } from '../../../types/types';
 
-describe('Pruebas en <LoginScreen />', () => {
-    const contextValue = {
-        dispatch: jest.fn()
-    };
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockNavigate
+}));
 
-    AuthContext
-    const historyMock = {
-        replace: jest.fn()
-    };
+describe('Pruebas en <LoginScreen />', () => {
+    beforeEach( () => jest.clearAllMocks() );
+    const contextValue = { dispatch: jest.fn() };
 
     const wrapper = mount(
         <AuthContext.Provider value={ contextValue }>
-            <LoginScreen history={ historyMock } />
+            <MemoryRouter initialEntries={[ '/login' ]}>
+                <Routes>
+                    <Route path="/login" element={ <LoginScreen /> } />
+                </Routes>
+            </MemoryRouter>
         </AuthContext.Provider>
     );
-
-    beforeEach( () => jest.clearAllMocks() );
 
     test('Debe de mostrarse correctamente', () => {
         expect(wrapper).toMatchSnapshot();
@@ -31,12 +34,12 @@ describe('Pruebas en <LoginScreen />', () => {
             type: types.login,
             payload: { name: 'Gabriel' }
         });
-        expect(historyMock.replace).toHaveBeenCalledWith('/');
+        expect(mockNavigate).toHaveBeenCalledWith('/', { replace: true });
     });
 
     test('Debe de usarse la propiedad lastPath de localStorage para redireccionar al usuario', () => {
         localStorage.setItem('lastPath', '/dc');
         wrapper.find('button').simulate('click');
-        expect(historyMock.replace).toHaveBeenCalledWith('/dc');
+        expect(mockNavigate).toHaveBeenCalledWith('/dc', { replace: true });
     });
 });

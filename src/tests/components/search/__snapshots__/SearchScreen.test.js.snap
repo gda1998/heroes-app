@@ -65,7 +65,6 @@ Array [
                 alt="Batman"
                 className="card-img"
                 loading="lazy"
-                src="./assets/heroes/dc-batman.jpg"
               />
             </div>
             <div

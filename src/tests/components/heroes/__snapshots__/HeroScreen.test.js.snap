@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <HeroScreen /> Debe de mostrar a Spiderman cuando el parametro exista 1`] = `
+<div
+  className="d-flex align-items-center animate__animated animate__fadeInLeft"
+>
+  <div
+    className="flex-shrink-0"
+  >
+    <img
+      alt="Spider Man"
+      className="img-thumbnail"
+      loading="lazy"
+    />
+  </div>
+  <div
+    className="flex-grow-1 ms-3"
+  >
+    <h3>
+      Spider Man
+    </h3>
+    <div
+      className="d-flex align-items-start flex-column bd-highlight mb-3"
+    >
+      <div
+        className="p-2 bd-highlight"
+      >
+        <b>
+          Alter Ego:
+        </b>
+         
+        Peter Parker
+      </div>
+      <div
+        className="p-2 bd-highlight"
+      >
+        <b>
+          Publisher:
+        </b>
+         
+        Marvel Comics
+      </div>
+      <div
+        className="p-2 bd-highlight"
+      >
+        <b>
+          First appearance:
+        </b>
+         
+        Amazing Fantasy #15
+      </div>
+    </div>
+    <h5>
+      Characters
+    </h5>
+    <p>
+      Peter Parker
+    </p>
+    <button
+      className="btn btn-outline-info"
+      onClick={[Function]}
+    >
+      Return
+    </button>
+  </div>
+</div>
+`;

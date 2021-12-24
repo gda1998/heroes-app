@@ -1,25 +1,21 @@
 import { mount } from 'enzyme';
-import { MemoryRouter, Route } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
 import { SearchScreen } from '../../../components/search/SearchScreen';
 
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockNavigate
+}));
+
 describe('Pruebas en <SearchSreen />', () => {
-
-    const historyMock = {
-        push: jest.fn()
-    };
-
-    const getWrapper = (path) => {
-        return mount(
-            <MemoryRouter initialEntries={[ path ]}>
-                <Route 
-                    path="/search" 
-                    component={ () => <SearchScreen history={ historyMock } /> } 
-                />
-            </MemoryRouter>
-        );
-    }
-
     beforeEach( () => jest.clearAllMocks() );
+
+    const getWrapper = (path) => mount(
+        <MemoryRouter initialEntries={[ path ]}>
+            <SearchScreen />
+        </MemoryRouter>
+    );
 
     test('El componente se debe de mostrar correctamente', () => {
         const wrapper = getWrapper('/search');
@@ -41,8 +37,8 @@ describe('Pruebas en <SearchSreen />', () => {
         const alertElement = wrapper.find('.alert-warning');
         expect(alertElement.exists()).toBe(true);
     });
-    
-    test('Debe de llamar el push del history', () => {
+     
+    test('Debe de llamar al navigate cuando se hace el submit', () => {
         const querySeachValue = 'batman';
         const wrapper = getWrapper(`/search?q=${ querySeachValue }`);
         wrapper.find('input').simulate('change', {
@@ -52,7 +48,6 @@ describe('Pruebas en <SearchSreen />', () => {
             preventDefault(){}
         });
 
-        expect(historyMock.push).toHaveBeenCalledWith(`?q=${ querySeachValue }`)
+        expect(mockNavigate).toHaveBeenCalledWith(`?q=${ querySeachValue }`);
     });
-    
 });

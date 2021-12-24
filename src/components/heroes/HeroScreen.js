@@ -1,15 +1,16 @@
-import React, { useMemo } from 'react';
-import { Redirect } from 'react-router-dom';
-import { useParams } from 'react-router';
+import { useMemo } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import { getHeroById } from '../../selectors/getHeroById';
 import { heroeImages } from '../../helpers/heroesImages';
 
-export const HeroScreen = ({ history }) => {
+export const HeroScreen = () => {
     const { heroId } = useParams();
+    const navigate = useNavigate();
     const hero = useMemo(() => getHeroById(heroId), [ heroId ]);
+    const handleReturn = () => navigate(-1) === undefined && navigate('/');
 
-    if(!hero)
-        return <Redirect to="/" />
+    if(!hero) return <Navigate to="/" />
 
     const {
         superhero,
@@ -18,8 +19,6 @@ export const HeroScreen = ({ history }) => {
         first_appearance,
         characters
     } = hero;
-
-    const handleReturn = () => history.length > 2 ? history.goBack() : history.push('/');
 
     return (
         <div className="d-flex align-items-center animate__animated animate__fadeInLeft">

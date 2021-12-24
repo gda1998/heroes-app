@@ -1,13 +1,16 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 import { useLocation } from 'react-router';
 import { useForm } from '../../hooks/useForm';
 import { HeroCard } from '../heroes/HeroCard';
 import { getHeroesByName } from '../../selectors/getHeroesByName';
 
-export const SearchScreen = ({ history }) => {
+export const SearchScreen = () => {
 
+    const navigate = useNavigate();
     const { search } = useLocation();
+
     const { q = '' } = queryString.parse(search);
 
     const [ form, handleInputChange ] = useForm({
@@ -20,7 +23,7 @@ export const SearchScreen = ({ history }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        history.push(`?q=${ searchText }`);
+        navigate(`?q=${ searchText }`);
     }
 
     return (

@@ -1,18 +1,16 @@
 import { mount } from 'enzyme';
-import { MemoryRouter, Router } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
 import { AuthContext } from '../../../auth/AuthContext';
 import { Navbar } from '../../../components/ui/Navbar';
 import { types } from '../../../types/types';
 
-describe('Pruebas en <Navbar />', () => {
-    const historyMock = {
-        push: jest.fn(),
-        replace: jest.fn(),
-        location: {},
-        listen: jest.fn(),
-        createHref: jest.fn()
-    };
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockNavigate
+}));
 
+describe('Pruebas en <Navbar />', () => {
     const contextValue = {
         dispatch: jest.fn(),
         user: {
@@ -23,15 +21,9 @@ describe('Pruebas en <Navbar />', () => {
 
     const wrapper = mount(
         <AuthContext.Provider value={ contextValue }>
-
             <MemoryRouter>
-
-                <Router history={ historyMock }>
-                    <Navbar />
-                </Router>
-
+                <Navbar />
             </MemoryRouter>
-
         </AuthContext.Provider>
     );
 
@@ -43,13 +35,9 @@ describe('Pruebas en <Navbar />', () => {
         expect(userName).toBe('Gabriel');
     });
 
-    test('Se debe de hacer un logout correctamente', () => {
+    test('Se debe de llamar el logout con el navigate y el dispatch siendo usados en el logout', () => {
         wrapper.find('button').at(1).simulate('click');
-        expect(contextValue.dispatch).toHaveBeenCalledWith({
-            type: types.logout
-        });
-        expect(historyMock.replace).toHaveBeenCalledWith('/login');
+        expect(contextValue.dispatch).toHaveBeenCalledWith({ type: types.logout });
+        expect(mockNavigate).toHaveBeenCalledWith('/login', { replace: true });
     });
-    
-    
 });

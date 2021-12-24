@@ -1,5 +1,4 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 
 import { Navbar } from '../components/ui/Navbar';
 import { DcScreen } from '../components/dc/DcScreen';
@@ -12,13 +11,14 @@ export const DashboardRoutes = () => {
         <>
             <Navbar />
             <div className="container mt-2">
-                <Switch>
-                    <Route exact path="/hero/:heroId" component={ HeroScreen }></Route>
-                    <Route exact path="/marvel" component={ MarvelScreen }></Route>
-                    <Route exact path="/dc" component={ DcScreen }></Route>
-                    <Route exact path="/search" component={ SearchScreen }></Route>
-                    <Redirect to="/marvel" />
-                </Switch>
+                <Routes>
+                    <Route path="/hero/:heroId" element={ <HeroScreen /> } />
+                    <Route path="/marvel" element={ <MarvelScreen /> } />
+                    <Route path="/dc" element={ <DcScreen /> } />
+                    <Route path="/search" element={ <SearchScreen /> } />
+                    <Route path="/" element={ <MarvelScreen /> } />
+                    <Route path="/*" element={ <Navigate to="/" replace /> } />
+                </Routes>
             </div>   
         </>
     )

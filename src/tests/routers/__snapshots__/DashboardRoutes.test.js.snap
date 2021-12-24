@@ -39,11 +39,9 @@ Array [
             className="nav-item"
           >
             <a
-              aria-current="page"
-              className="nav-link active"
+              className="nav-link "
               href="/marvel"
               onClick={[Function]}
-              style={Object {}}
             >
               Marvel
             </a>
@@ -52,8 +50,7 @@ Array [
             className="nav-item"
           >
             <a
-              aria-current={null}
-              className="nav-link"
+              className="nav-link "
               href="/dc"
               onClick={[Function]}
             >
@@ -64,8 +61,7 @@ Array [
             className="nav-item"
           >
             <a
-              aria-current={null}
-              className="nav-link"
+              className="nav-link "
               href="/search"
               onClick={[Function]}
             >
@@ -123,7 +119,6 @@ Array [
                   alt="Spider Man"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-spider.jpg"
                 />
               </div>
               <div
@@ -184,7 +179,6 @@ Array [
                   alt="Captain America"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-captain.jpg"
                 />
               </div>
               <div
@@ -245,7 +239,6 @@ Array [
                   alt="Iron Man"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-iron.jpg"
                 />
               </div>
               <div
@@ -306,7 +299,6 @@ Array [
                   alt="Thor"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-thor.jpg"
                 />
               </div>
               <div
@@ -367,7 +359,6 @@ Array [
                   alt="Hulk"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-hulk.jpg"
                 />
               </div>
               <div
@@ -428,7 +419,6 @@ Array [
                   alt="Wolverine"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-wolverine.jpg"
                 />
               </div>
               <div
@@ -489,7 +479,6 @@ Array [
                   alt="Daredevil"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-daredevil.jpg"
                 />
               </div>
               <div
@@ -550,7 +539,6 @@ Array [
                   alt="Hawkeye"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-hawkeye.jpg"
                 />
               </div>
               <div
@@ -611,7 +599,6 @@ Array [
                   alt="Cyclops"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-cyclops.jpg"
                 />
               </div>
               <div
@@ -672,7 +659,6 @@ Array [
                   alt="Silver Surfer"
                   className="card-img"
                   loading="lazy"
-                  src="./assets/heroes/marvel-silver.jpg"
                 />
               </div>
               <div

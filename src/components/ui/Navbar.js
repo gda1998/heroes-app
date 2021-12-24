@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink, useHistory } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/AuthContext';
 import { types } from '../../types/types';
 
@@ -9,13 +9,13 @@ export const Navbar = () => {
 
     const { user:{name}, dispatch } = useContext(AuthContext);
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch({
             type: types.logout
         });
-        history.replace('/login');
+        navigate('/login', { replace: true });
     }
 
     return (
@@ -33,9 +33,7 @@ export const Navbar = () => {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink 
-                                activeClassName="active"
-                                className="nav-link" 
-                                exact
+                                className={ ({ isActive }) => `nav-link ${ isActive ? 'nav-link' : '' }` } 
                                 to="/marvel"
                             >
                                 Marvel
@@ -43,9 +41,7 @@ export const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink 
-                                activeClassName="active"
-                                className="nav-link" 
-                                exact
+                                className={ ({ isActive }) => `nav-link ${ isActive ? 'nav-link' : '' }` } 
                                 to="/dc"
                             >
                                 DC
@@ -53,9 +49,7 @@ export const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <NavLink 
-                                activeClassName="active"
-                                className="nav-link" 
-                                exact
+                                className={ ({ isActive }) => `nav-link ${ isActive ? 'nav-link' : '' }` } 
                                 to="/search"
                             >
                                 Search

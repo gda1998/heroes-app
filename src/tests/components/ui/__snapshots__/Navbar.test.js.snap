@@ -26,6 +26,7 @@ exports[`Pruebas en <Navbar /> El componente debe de mostrarse correctamente 1`]
     >
       <a
         className="navbar-brand"
+        href="/"
         onClick={[Function]}
       >
         Asociaciones
@@ -37,8 +38,8 @@ exports[`Pruebas en <Navbar /> El componente debe de mostrarse correctamente 1`]
           className="nav-item"
         >
           <a
-            aria-current={null}
-            className="nav-link"
+            className="nav-link "
+            href="/marvel"
             onClick={[Function]}
           >
             Marvel
@@ -48,8 +49,8 @@ exports[`Pruebas en <Navbar /> El componente debe de mostrarse correctamente 1`]
           className="nav-item"
         >
           <a
-            aria-current={null}
-            className="nav-link"
+            className="nav-link "
+            href="/dc"
             onClick={[Function]}
           >
             DC
@@ -59,8 +60,8 @@ exports[`Pruebas en <Navbar /> El componente debe de mostrarse correctamente 1`]
           className="nav-item"
         >
           <a
-            aria-current={null}
-            className="nav-link"
+            className="nav-link "
+            href="/search"
             onClick={[Function]}
           >
             Search
